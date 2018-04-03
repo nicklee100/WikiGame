@@ -22,6 +22,28 @@ class App extends React.Component {
     console.log('clicked')
   }
 
+   hello() {
+    return React.createElement(
+      "div",
+      { onClick: this.onClick },
+      "Hello world!"
+    );
+  }
+
+    insertTag(html){
+        const length = html.length;
+        let HTML = html;
+        let aTag = '<a href=';
+        for(let i = 0; i<HTML.length; i++){
+        let string = HTML.slice(i,i+8)
+        if( string === aTag){
+            HTML = HTML.slice(0,i+2) + ' onFlick={this.onFlick} '+ HTML.slice(i+3)
+        }
+    }
+    return HTML
+  }
+
+
   componentDidMount() {
 
       const url = 'https://en.wikipedia.org/w/api.php?action=parse&&page=tron&format=json';
@@ -35,8 +57,9 @@ class App extends React.Component {
             // fs.writeFile('hmltdata.json',someText)
             // fs.writeFile('data.html', '<html><body>'+someText+'</body</html')
             // fs.writeFile('otherdata.json',image)
-            this.setState({htmlData:someText})
-
+            const newHTML = this.insertTag(someText)
+            this.setState({htmlData:newHTML})
+            console.log(this.hello())
         })
 
 
@@ -51,7 +74,7 @@ class App extends React.Component {
               <a>x</a>
             <Game/>
             <Results />
-            <ArticleContainer props='hello'/>
+            <ArticleContainer props='hello' htmlData={this.state.htmlData}/>
 
           </div>
       )
@@ -59,6 +82,7 @@ class App extends React.Component {
 }
 
 
+export default App;
 
-ReactDom.render(<App />, document.getElementById('root'));
+// ReactDom.render(<App />, document.getElementById('root'));
 

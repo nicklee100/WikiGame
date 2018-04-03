@@ -7,7 +7,7 @@ export default {
   devtool: 'inline-source-map',
   mode: 'development',
   entry: [
-    path.resolve(__dirname, 'app/app.js')
+    path.resolve(__dirname, 'app/index.js')
   ],
 
   output: {
