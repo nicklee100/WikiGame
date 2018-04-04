@@ -1,31 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { Link } from 'react-router-dom'
+import Parser from 'html-react-parser'
 
 class ArticleContainer extends React.Component {
   constructor(props ){
     super(props)
     this.state = {
     }
+    this.myRef = React.createRef();
+
     console.log(this.props)
   }
 
-  componentWillReceiveProps(){
 
-  }
 
-  onClick(e){
-    e.preventDefault()
-    console.log('CLICK!!!');
-  }
 
-  componentDidMount(){
-    // let a = document.getElementsByTagName('a');
-
-        // var elements = ReactDOM.findDOMNode('a');
-        // console.log(elements);
-
-  }
+  anchorLinkListener (e) {
+    if(e.target.tagName === 'a') {
+       console.log('Anchor link clicked')
+       e.preventDefault();
+    }
+ }
 
   createMarkUp(rawHtml){
     return {__html: rawHtml};
@@ -33,16 +29,18 @@ class ArticleContainer extends React.Component {
   MyComponent(rawHtml) {
     return (
       <div>
-      <button onClick={this.onClick}>click this </button>
-      <div dangerouslySetInnerHTML={this.createMarkUp(rawHtml)} />
+      <button> <Link to="/wiki/Steven_Lisberger"> click this </Link></button>
+       <div dangerouslySetInnerHTML={this.createMarkUp(rawHtml)} />
+
       </div>
     )
   }
 
   render(){
+    let html = this.props.htmlData;
     if(this.props.htmlData) {
       return (
-        <div style={{'backgroundColor': 'pink', 'width':'75%'}}>
+        <div ref={(ref) => {this.myRef = ref}} style={{'backgroundColor': 'pink', 'width':'75%'}}>
           {this.MyComponent(this.props.htmlData)}
         </div>
       )
@@ -56,7 +54,7 @@ class ArticleContainer extends React.Component {
           </div>
         </div>
       )
-    }
+     }
   }
 };
 

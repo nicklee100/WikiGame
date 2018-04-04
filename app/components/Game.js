@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Game extends React.Component {
   constructor(props ){
@@ -12,6 +13,7 @@ class Game extends React.Component {
     return(
       <div>
         <button> New Game</button>
+        <button><Link to='/wiki'>wiki</Link></button>
       </div>
     )
   }

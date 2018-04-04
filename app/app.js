@@ -4,8 +4,18 @@ import ArticleContainer from './components/ArticleContainer';
 import Game from './components/Game';
 import Results from './components/Results';
 import wikiPageHTML from '../utilities/testData.js';
+import {Route, Switch} from 'react-router-dom'
 
 import axios from 'axios';
+
+function Header(){
+    return (
+        <div>
+            <h1>Howdy from React!</h1>
+            <a>x</a>
+        </div>
+    )
+}
 
 class App extends React.Component {
     constructor(props ){
@@ -13,24 +23,10 @@ class App extends React.Component {
         this.state = {
             htmlData: ""
         }
-        console.log(this.props)
       }
 
 
-  handleChange(e)  {
-    e.preventDefault()
-    console.log('clicked')
-  }
-
-   hello() {
-    return React.createElement(
-      "div",
-      { onClick: this.onClick },
-      "Hello world!"
-    );
-  }
-
-    insertTag(html){
+  insertTag(html){
         const length = html.length;
         let HTML = html;
         let aTag = '<a href=';
@@ -40,7 +36,8 @@ class App extends React.Component {
             HTML = HTML.slice(0,i+2) + ' onFlick={this.onFlick} '+ HTML.slice(i+3)
         }
     }
-    return HTML
+    const final = HTML+"<script>console.log('it worked')</script>"
+    return final
   }
 
 
@@ -57,26 +54,26 @@ class App extends React.Component {
             // fs.writeFile('hmltdata.json',someText)
             // fs.writeFile('data.html', '<html><body>'+someText+'</body</html')
             // fs.writeFile('otherdata.json',image)
-            const newHTML = this.insertTag(someText)
-            this.setState({htmlData:newHTML})
-            console.log(this.hello())
+            // const newHTML = this.insertTag(someText)
+             this.setState({htmlData:someText})
+            // console.log(this.hello())
         })
-
-
-
   }
 
+  // render(){
+  //   return(
+  //     <ArticleContainer props='hello' htmlData={this.state.htmlData}/>
+  //     )
+  // }
+
+
   render(){
-
       return(
-          <div>
-              <h1>Howdy from React!</h1>
-              <a>x</a>
-            <Game/>
-            <Results />
-            <ArticleContainer props='hello' htmlData={this.state.htmlData}/>
-
-          </div>
+        
+          <Switch>
+            <Route path='/results' component={Results}/>
+            <Route path='/' component={() =>  <ArticleContainer props='hello' htmlData={this.state.htmlData}/>}/>
+          </Switch>
       )
   }
 }
@@ -85,4 +82,7 @@ class App extends React.Component {
 export default App;
 
 // ReactDom.render(<App />, document.getElementById('root'));
+//            <ArticleContainer props='hello' htmlData={this.state.htmlData}/>
+
+//
 
