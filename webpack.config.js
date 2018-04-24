@@ -34,4 +34,12 @@ export default {
 
     ]
   },
+  plugins: [
+
+  ]
 }
+
+
+// new webpack.DefinePlugin({
+//   IN_BROWSER: true,
+// }),

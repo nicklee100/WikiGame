@@ -69,7 +69,7 @@ class App extends React.Component {
 
   render(){
       return(
-        
+
           <Switch>
             <Route path='/results' component={Results}/>
             <Route path='/' component={() =>  <ArticleContainer props='hello' htmlData={this.state.htmlData}/>}/>
