@@ -14,10 +14,11 @@ class Results extends React.Component {
 
   render(){
 
-    return this.someHTML()
+
     return (
-      <div>
+      <div className="Results-Component">
         <h3> Moves </h3>
+        {this.someHTML()}
       </div>
     )
   }

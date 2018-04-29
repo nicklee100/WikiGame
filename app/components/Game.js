@@ -11,7 +11,7 @@ class Game extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className="Game-Component">
         <button> New Game</button>
         <button><Link to='/wiki'>wiki</Link></button>
       </div>

@@ -1,0 +1,21 @@
+
+.Parent-Container {
+  display:grid;
+  grid-template-columns: 1fr  2fr;
+
+}
+
+.Results-Component {
+  border: solid 1px black;
+}
+
+.Game-Component {
+  border: solid 1px black;
+  height: 100px;
+
+}
+
+.Article-Container {
+  border: solid 1px black;
+}
+

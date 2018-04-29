@@ -5,7 +5,7 @@ import Game from './components/Game';
 import Results from './components/Results';
 import wikiPageHTML from '../utilities/testData.js';
 import {Route, Switch} from 'react-router-dom'
-
+import './App.css';
 import axios from 'axios';
 
 function Header(){
@@ -69,11 +69,13 @@ class App extends React.Component {
 
   render(){
       return(
-
-          <Switch>
-            <Route path='/results' component={Results}/>
-            <Route path='/' component={() =>  <ArticleContainer props='hello' htmlData={this.state.htmlData}/>}/>
-          </Switch>
+        <div className="Parent-Container">
+            <div>
+                <Game/>
+                <Results/>
+            </div>
+            <ArticleContainer/>
+        </div>
       )
   }
 }
