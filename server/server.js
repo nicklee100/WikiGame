@@ -1,8 +1,15 @@
 const express = require('express');
 import path from 'path';
-
+import axios from 'axios';
 import webpack from 'webpack';
 import config from '../webpack.config.js';
+const fs = require('fs');
+import {
+  loadEntirePage,
+  parseTable,
+  parseSummary
+} from './serverUtility';
+
 
 const compiler = webpack(config);
 
@@ -26,5 +33,11 @@ app.get('/', function(req, res) {
 
 app.get('/article/:title', function(req,res) {
   var name = req.params.title;
+  loadEntirePage('https://en.wikipedia.org/w/api.php?action=parse&&page=tron&format=json')
+    .then(function(response){
+      console.log(response)
+    })
   res.json({success:name})
 })
+
+
