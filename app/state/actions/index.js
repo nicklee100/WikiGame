@@ -44,3 +44,21 @@ export function getArticle(title='porsche_911'){
       })
   }
 }
+
+
+
+// const url = 'https://en.wikipedia.org/w/api.php?action=parse&&page=tron&format=json';
+// axios.get(url)
+//   .then(data => {
+//       // console.log(data.data.parse.text['*'])
+//       console.log(data.data.parse.images)
+//       const image = data.data.parse;
+//       const html = data.data.parse.text['*']
+//       const someText = html.replace(/(\r\n\t|\n|\r\t)/gm,"");
+//       // fs.writeFile('hmltdata.json',someText)
+//       // fs.writeFile('data.html', '<html><body>'+someText+'</body</html')
+//       // fs.writeFile('otherdata.json',image)
+//       // const newHTML = this.insertTag(someText)
+//        this.setState({htmlData:someText})
+//       // console.log(this.hello())
+//   })

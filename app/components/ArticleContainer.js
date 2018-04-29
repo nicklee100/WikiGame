@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 
 var createReactClass = require('create-react-class');
 
-
 class ArticleContainer extends React.Component {
   constructor(props ){
     super(props)
