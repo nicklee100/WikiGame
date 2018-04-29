@@ -54,7 +54,6 @@ function parseTable(str){
 
   }
   result = str.slice(num,endNum+1)
-   fs.writeFile('tableParsy.js',result)
   return(result)
   // return(num+':'+endNum)
 
