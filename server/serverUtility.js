@@ -48,13 +48,15 @@ function parseTable(str){
     if(subStr === table){ num = i; }
     if(endTable === endSub){
       endNum = i+7
+      break;
     }
-    result = str.slice(num,endNum+1)
-    // fs.writeFile('tableParse.js',result)
+
 
   }
+  result = str.slice(num,endNum+1)
+   fs.writeFile('tableParsy.js',result)
   return(result)
-  return(num+':'+endNum)
+  // return(num+':'+endNum)
 
 }
 
