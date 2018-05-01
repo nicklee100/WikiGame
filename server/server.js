@@ -36,8 +36,8 @@ app.get('/article/:title', function(req,res) {
   loadEntirePage('https://en.wikipedia.org/w/api.php?action=parse&&page=tron&format=json')
     .then(function(response){
       let HTML = parseTable(response)
-      console.log(HTML)
-      res.send(HTML)
+      // console.log(HTML)
+      res.json({'data':HTML})
 
     })
 

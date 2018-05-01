@@ -29,14 +29,14 @@ export function articleLoading(bool){
   }
 }
 
-export function getArticle(title='porsche_911'){
+export function getArticle(title='Tron'){
   return (dispatch) => {
     console.log('stuff happening')
     dispatch(articleLoading(true));
     axios.get(`/article/${title}`)
       .then(response => {
-        console.log(response)
-        dispatch(getArticleSuccess(response.data))
+        console.log('response: ', JSON.stringify(response))
+        dispatch(getArticleSuccess(response.data.data))
       })
       .catch(err => {
         console.log('ERROR: ',error)

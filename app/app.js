@@ -22,7 +22,7 @@ class App extends React.Component {
         let aTag = '<a href=';
         for(let i = 0; i<HTML.length; i++){
         let string = HTML.slice(i,i+8)
-        if( string === aTag){
+        if(string === aTag){
             HTML = HTML.slice(0,i+2) + ' onFlick={this.onFlick} '+ HTML.slice(i+3)
         }
     }
@@ -34,6 +34,7 @@ class App extends React.Component {
   componentDidMount() {
 
   }
+
 
   render(){
       return(
